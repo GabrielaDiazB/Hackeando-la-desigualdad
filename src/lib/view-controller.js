@@ -1,5 +1,10 @@
-import {wordss} from '../data/words.js'
+import {wordss} from '../data/words.js';
 const arrKeys = Object.values(wordss);
+
+const changeHash = (hash) => {
+  location.hash = hash;
+};
+    
 
 import { addUserStereotypeData } from '../lib/functions.js';
 import { searchDataFunction } from '../lib/functions.js';
@@ -11,9 +16,37 @@ import { searchDataFunction } from '../lib/functions.js';
 
 export const addPostOnClick = () => {
   const content = document.querySelector('#stereotypes-box').value;
-  const uidUser = idUser().uid;
   const contents = document.querySelector('#stereotypes-box').value;
   const searchDataValue = searchDataFunction(arrKeys, contents.value); 
-  addUserStereotypeData(content, uidUser, searchDataValue);
+  addUserStereotypeData(content, searchDataValue);
 };
 
+export const facebookOnClick = () => {
+  registerFacebookLogIn()
+    .then((result) => {
+      changeHash('/actionPlan');
+    })
+    .catch((error) => { 
+      alert(error);
+    });
+};
+  
+export const googleOnClick = () => {
+  registerGoogleLogIn()
+    .then((result) => {
+      changeHash('/actionPlan');
+    })
+    .catch((error) => { 
+      alert(error);
+    });
+};
+    
+export const twitterOnClick = () => {
+  registerTwitterLogIn()
+    .then((result) => {
+      changeHash('/actionPlan');
+    })
+    .catch((error) => { 
+      alert(error);
+    });
+};

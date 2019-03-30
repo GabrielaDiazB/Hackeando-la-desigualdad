@@ -14,10 +14,10 @@ export const stereotypeBox = (data) => {
   paintingDiv.addEventListener('click', () => {
     addPostOnClick();
   });
-  const ul = divElement.querySelector('#text-box');
-  data.forEach((post) => {
-    ul.appendChild(itemStereotype(post));
-  });
+//   const ul = divElement.querySelector('#text-box');
+//   data.forEach((post) => {
+//     ul.appendChild(itemStereotype(post));
+//   });
 
   return divElement;
 };
