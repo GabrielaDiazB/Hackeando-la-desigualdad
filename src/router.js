@@ -2,12 +2,13 @@ import { actionPlan } from './lib/templates/action-plan.js';
 import { stereotypeBox } from './lib/templates/stereotype-box.js';
 import { introduction } from './lib/templates/introduction.js';
 import { signIn } from './lib/templates/singIn.js';
+import { getStereotypeData} from './lib/functions.js';
 
 
 const changeTmp = (hash) => {
     if (hash === '#/' || hash === '' || hash === '#') {
       return viewTmp('#/introduction');
-    } else if (hash === '#/introduction'||hash === '#/stereotypeList' ||hash === '#/signin' || hash === '#/actionPlan') {
+    } else if (hash === '#/introduction' || hash === '#/stereotypeList' ||hash === '#/signin' || hash === '#/actionPlan') {
       return viewTmp(hash);
     } else {
       return viewTmp('#/introduction');
@@ -18,7 +19,6 @@ const changeTmp = (hash) => {
     const router = routers.substr(2, routers.length - 2);
     const section = document.getElementById('first-template');
     const actionPlanSection = document.getElementById('action-plan');
-    const introductionSection = document.getElementById('introduction');
     actionPlanSection.innerHTML = '';
     section.innerHTML = '';
     switch (router) {  
@@ -32,7 +32,10 @@ const changeTmp = (hash) => {
     section.appendChild(signIn());
     break;
     case 'stereotypeList': 
-    section.appendChild(stereotypeBox());
+    getStereotypeData((data) => {
+      section.innerHTML= '';
+      section.appendChild(stereotypeBox(data));
+    })
     break;         
     case 'introduction':
       section.appendChild(introduction());

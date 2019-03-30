@@ -1,44 +1,45 @@
+import {addPostOnClick} from '../view-controller.js';
+
+
 export const stereotypeBox = (data) => {
-    const firstTemplate = `
+  const firstTemplate = `
     <div id= "text-box">
       <textarea name="text-input" id="stereotypes-box" cols="30" rows="10"></textarea>
       <button type="button" id="sb-button">Añadir</button>
     </div>`;
-    const divElement = document.createElement('div');
-    divElement.innerHTML = firstTemplate;
+  const divElement = document.createElement('div');
+  divElement.innerHTML = firstTemplate;
 
-    const paintingDiv = divElement.querySelector('#sb-button');
-    paintingDiv.addEventListener('click', () => {
-        addStereotypeOnClick();
-    });
+  const paintingDiv = divElement.querySelector('#sb-button');
+  paintingDiv.addEventListener('click', () => {
+    addPostOnClick();
+  });
+  const ul = divElement.querySelector('#text-box');
+  data.forEach((post) => {
+    ul.appendChild(itemStereotype(post));
+  });
 
-    // const ul = divElement.querySelector('text-box');
-    // data.forEach((post) => {
-    //     ul.appendChild(itemStereotype(post))
-    // });
+  return divElement;
+};
 
-    return divElement;
-}
-
-const itemStereotype = () => {
-    const liElement = document.createElement('li');
-    liElement.classList.add('mdl-list__item')
-    liElement.innerHTML = `
+const itemStereotype = (dataStereotype) => {
+  const liElement = document.createElement('li');
+  liElement.classList.add('mdl-list__item');
+  liElement.innerHTML = `
         <div id="stereotype-result">
-            <p id="text-list"></p>
-            <label for="text-list"></label>
+            <p id="text-list">${dataStereotype.content}</p>
+            <label id="listNum" for="text-list">${dataStereotype.searchDataValue}</label>
         </div>`;
-    return liElement;
-}
+  return liElement;
+};
 
-const totalValue = () => {
-    const total = `
+export const totalValue = () => {
+  const total = `
     <h3>Total:</h3>
     <button type="button" id="next-btn">Siguiente</button>`;
-    const totalElement = document.createElement('div');
-    totalElement.innerHtml = total;
-}
-
-
+  const totalElement = document.createElement('div');
+  totalElement.innerHtml = total;
+  return totalElement;
+};
 
 
