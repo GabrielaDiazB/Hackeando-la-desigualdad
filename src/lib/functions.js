@@ -20,7 +20,6 @@ export const searchDataFunction = (data, dataSearch) => {
   return newArraySearch;
 };
 
-
 export const addUserStereotypeData = (content) => { 
   let posts = firebase.firestore().collection('data');
   let data = {
