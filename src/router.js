@@ -2,15 +2,16 @@ import { actionPlan } from './lib/templates/action-plan.js';
 import { stereotypeBox } from './lib/templates/stereotype-box.js';
 import { introduction } from './lib/templates/introduction.js';
 import { signIn } from './lib/templates/singIn.js';
+import { inicio } from './lib/templates/inicio.js';
 
 
 const changeTmp = (hash) => {
     if (hash === '#/' || hash === '' || hash === '#') {
-      return viewTmp('#/introduction');
-    } else if (hash === '#/introduction'||hash === '#/stereotypeList' ||hash === '#/signin' || hash === '#/actionPlan') {
+      return viewTmp('#/inicio');
+    } else if (hash === '#/inicio' ||hash === '#/introduction'||hash === '#/stereotypeList' ||hash === '#/signin' || hash === '#/actionPlan') {
       return viewTmp(hash);
     } else {
-      return viewTmp('#/introduction');
+      return viewTmp('#/inicio');
     }
   };
   
@@ -18,7 +19,6 @@ const changeTmp = (hash) => {
     const router = routers.substr(2, routers.length - 2);
     const section = document.getElementById('first-template');
     const actionPlanSection = document.getElementById('action-plan');
-    const introductionSection = document.getElementById('introduction');
     actionPlanSection.innerHTML = '';
     section.innerHTML = '';
     switch (router) {  
@@ -36,9 +36,11 @@ const changeTmp = (hash) => {
     break;         
     case 'introduction':
       section.appendChild(introduction());
-      break;  
+      break;
+    case 'inicio':
+    section.appendChild(inicio()); 
     default:
-      section.appendChild(introduction());
+      section.appendChild(inicio());
       break;
     }
   };

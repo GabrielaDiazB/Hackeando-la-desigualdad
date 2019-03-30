@@ -1,0 +1,90 @@
+@font-face{
+    font-family: heebo;
+    src: url(/font/heebo/Heebo-Regular.ttf);
+}
+@font-face{
+    font-family: roboto;
+    src: url(/font/roboto/Roboto-Regular.ttf)
+}
+body{
+    margin: 0;
+    padding: 0;
+}
+@media (max-width: 800px){
+    .inicio-background{
+        width: 100%;
+        height: 10000px;
+        background-image: url(/img/background.png);
+        background-position: center;
+        background-size: cover;
+        padding-top:10px;
+
+    }
+    .title-text{
+        color: white;
+        text-align: center;
+        font-family: heebo;
+        font-size: 57px;
+        line-height: 14px;
+        margin: 0;
+        padding-top: 100px;
+    }
+    .sub-title{
+        font-family: roboto;
+        text-align: center;
+        color: white;
+        font-size: 24px;
+        line-height: 14px;
+        padding-top: 30px;
+    }
+    .icon-img{
+        width: 100%;
+    }
+
+    .inicio-background button {
+        width: 275px;
+        height: 42px;
+        border-radius: 20px;
+        color: white;
+        margin-bottom: 5px;
+        margin-left: 13.5%;
+        text-align: center;
+    }
+    .start-btn{
+        background-color: #D7577E;
+
+    }
+    .login-btn{
+        background-color: rgba(189, 189, 189, 0.288);
+    }
+
+    .rectangle{
+        width:60%;
+        height: 7px;
+        margin-left: 20%;
+        background: rgba(215, 87, 126, 0.74);
+        margin-bottom: 50px;
+    }
+    .intro-box{
+        width: 90%;
+        height: 200px;
+        background: #FFFFFF;
+        border-radius: 20px;
+        margin-bottom: 10px;
+        margin-left: 5%;
+        columns: 2;
+    }
+    
+    .intro-subtitle{
+        text-align: center;
+
+    }
+
+    .intro-box p{
+        text-align: center;
+    }
+    .intro-img{
+        margin: 0;
+        padding: 0;
+    }
+}
