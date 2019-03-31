@@ -3,6 +3,7 @@ import { stereotypeBox } from './lib/templates/stereotype-box.js';
 import { introduction } from './lib/templates/introduction.js';
 import { signIn } from './lib/templates/singIn.js';
 import { inicio } from './lib/templates/inicio.js';
+// import { getStereotypeData} from './lib/functions.js';
 
 
 const changeTmp = (hash) => {
@@ -32,7 +33,10 @@ const changeTmp = (hash) => {
     section.appendChild(signIn());
     break;
     case 'stereotypeList': 
-    section.appendChild(stereotypeBox());
+    // getStereotypeData((data) => {
+    //   section.innerHTML = '';
+      section.appendChild(stereotypeBox());
+    // })
     break;         
     case 'introduction':
       section.appendChild(introduction());
